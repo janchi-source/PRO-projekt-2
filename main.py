@@ -139,7 +139,7 @@ death_sx.set_volume(0.5)
 game_sx = pygame.mixer.Sound("sounds/game.mp3")
 game_sx.set_volume(0.5)
 jump_sx = pygame.mixer.Sound("sounds/jump.mp3")
-jump_sx.set_volume(1)
+jump_sx.set_volume(0.5)
 menu_sx = pygame.mixer.Sound("sounds/menu.mp3")
 menu_sx.set_volume(0.5)
 
@@ -347,8 +347,8 @@ class World():
 	def __init__(self, data):
 		self.tile_list = []
 
-		dirt_img = pygame.image.load('img/cobble.jpg')
-		grass_img = pygame.image.load('img/grass.png')
+		dirt_img = pygame.image.load('img/obsidian.png')
+		grass_img = pygame.image.load('img/end.png')
 
 		row_count = 0
 		for row in data:
@@ -450,7 +450,7 @@ class Platform(pygame.sprite.Sprite):
 class Lava(pygame.sprite.Sprite):
 	def __init__(self, x, y):
 		pygame.sprite.Sprite.__init__(self)
-		img = pygame.image.load('img/lava.png')
+		img = pygame.image.load('img/lava_bucket.png')
 		self.image = pygame.transform.scale(img, (tile_size , tile_size))
 		self.rect = self.image.get_rect()
 		self.rect.x = x
@@ -552,6 +552,7 @@ while run:
 
 		if game_over == -1:
 			if restart_button.draw():
+				death_sx.play()
 				world_data = []
 				world = reset_level(level)
 				game_over = 0
