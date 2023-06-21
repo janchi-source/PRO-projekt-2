@@ -24,7 +24,7 @@ blue = (0, 0, 255)
 tile_size = 50
 game_over = 0
 main_menu = True
-level = 4
+level = 1
 max_level = 7
 
 
