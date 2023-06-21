@@ -24,7 +24,7 @@ blue = (0, 0, 255)
 tile_size = 50
 game_over = 0
 main_menu = True
-level = 1
+level = 4
 max_level = 7
 
 
@@ -406,7 +406,7 @@ class Enemy(pygame.sprite.Sprite):
 		self.image = pygame.image.load("img/enemy.png")
 		self.rect = self.image.get_rect()
 		self.rect.x = x
-		self.rect.y = y
+		self.rect.y = y + 14
 		self.move_direction = 1
 		self.move_count = 0
 
